@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+echo "Compiling game files.."
+javac unit_tests/*.java
+echo "Running tests.."
+java unit_tests.PokerUnitTests

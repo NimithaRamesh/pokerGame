@@ -1,6 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import models.*;
+import views.*;
 
 public class PokerGame extends JFrame {
 
@@ -54,7 +56,7 @@ public class PokerGame extends JFrame {
 
 
 
-	
+
 	}
 
 }

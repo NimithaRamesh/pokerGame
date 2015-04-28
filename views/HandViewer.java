@@ -1,11 +1,14 @@
+package views;
+
 import java.awt.*;
 import javax.swing.*;
+import models.*;
 
-class HandViewer extends JPanel {
+public class HandViewer extends JPanel {
 
 	CardViewer[] currentHand = new CardViewer[5];
 
-	HandViewer () {
+	public HandViewer () {
 
 		setLayout(new GridLayout(1,0,5,0));
 		setBackground(new Color(185,236,146));
@@ -20,7 +23,7 @@ class HandViewer extends JPanel {
 		}
 
 	}
-	/* 
+	/*
 	public void discardSelected () {
 
 		for (int x = 0; x < 5; x++) {
@@ -42,4 +45,3 @@ class HandViewer extends JPanel {
 	*/
 
 }
-

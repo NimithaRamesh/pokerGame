@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+echo "Compiling game files.."
+javac *.java models/*.java views/*.java
+echo "Done."

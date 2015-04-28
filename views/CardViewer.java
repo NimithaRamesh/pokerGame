@@ -1,16 +1,19 @@
+package views;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.event.*;
+import models.*;
 
-class CardViewer extends JLabel {
+public class CardViewer extends JLabel {
 
 	boolean isSelectable = true;
 	boolean selected = false;
-	
-	CardViewer (Card card) {
 
-		super(new ImageIcon("images/" + card.toString() + ".png")); 
+	public CardViewer (Card card) {
+
+		super(new ImageIcon("images/" + card.toString() + ".png"));
 
 		// Add action listener
 		addMouseListener(new HighlightCardOnClick());
@@ -20,7 +23,7 @@ class CardViewer extends JLabel {
 
 	// plus some eventlistener stuff
     class HighlightCardOnClick extends MouseInputAdapter {
-  
+
         // on click, sends task data to TaskDisplay
         @Override
         public void mouseClicked (MouseEvent e) {

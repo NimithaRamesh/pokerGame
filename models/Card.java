@@ -1,4 +1,6 @@
-class Card {
+package models;
+
+public class Card {
 
 	public final static int ACE = 1;
 	public final static int JACK = 11;
@@ -13,7 +15,7 @@ class Card {
 	private final int rank;
 	private final int suit;
 
-	Card (int rank, int suit) {
+	public Card (int rank, int suit) {
 		this.rank = rank;
 		this.suit = suit;
 	}
@@ -23,7 +25,7 @@ class Card {
 		String suitAsString = null;
 
 		switch (suit) {
-			case CLUB: 
+			case CLUB:
 				suitAsString = "c";
 				break;
 

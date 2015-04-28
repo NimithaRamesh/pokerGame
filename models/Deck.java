@@ -1,11 +1,13 @@
+package models;
+
 import java.util.Stack;
 import java.util.Collections;
 
-class Deck {
+public class Deck {
 
 	Stack<Card> deck  = new Stack<>();
 
-	Deck () {
+	public Deck () {
 
 		for (int rank = Card.ACE; rank <= Card.KING; rank++) {
 			for (int suit = Card.CLUB; suit <= Card.SPADE; suit++) {
@@ -24,6 +26,3 @@ class Deck {
 	}
 
 }
-
-
-
