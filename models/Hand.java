@@ -17,12 +17,21 @@ public class Hand {
   }
 
   public Card getCard(int index) {
-    if ( index < 0 || index >= MAX_SIZE ) { return null; }
+    if ( invalidIndex(index) ) { return null; }
     return this.cards[index];
   }
 
   public void add(int index, Card card) {
-    if ( index < 0 || index >= MAX_SIZE ) { return; }
+    if ( invalidIndex(index) ) { return; }
     this.cards[index] = card;
+  }
+
+  public void remove(int index) {
+    if ( invalidIndex(index) ) { return; }
+    this.cards[index] = null;
+  }
+
+  private boolean invalidIndex(int index) {
+    return (index < 0 || index >= MAX_SIZE);
   }
 }

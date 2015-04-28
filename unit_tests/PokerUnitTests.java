@@ -52,6 +52,9 @@ class PokerUnitTests {
 		testHand.add(2, card3);
 		test((testHand.getCard(2).equals(card3)), "Hand.add() with valid index");
 
+		testHand.remove(2);
+		test((testHand.getCard(2) == null), "Hand.remove() with valid index");
+
 		if ( errorCount == 0 ) { System.out.println("All test passed."); }
 	}
 
