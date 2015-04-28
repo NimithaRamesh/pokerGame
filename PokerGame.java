@@ -9,17 +9,16 @@ public class PokerGame extends JFrame {
 	// These are temporary, we'll replace them with fully fleshed out classes later
 	JLabel panelBalanceView;
 	JPanel panelHandView, panelBettingView;
+	Player player;
 
 	HandViewer hand = new HandViewer();
 
-	int playerBalance = 100;
-
 	PokerGame () {
-
+		player = new Player(100, new Hand());
 		setLayout(new BorderLayout());
 
 		// panelBalanceView
-		panelBalanceView = new JLabel("Player Balance");
+		panelBalanceView = new JLabel("Player Balance: " + player.getBalance());
 		panelBalanceView.setPreferredSize(new Dimension(800,50));
 		panelBalanceView.setHorizontalAlignment(SwingConstants.CENTER);
 
