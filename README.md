@@ -10,3 +10,8 @@ In order to use these shell scripts you might need to make them executable by ru
   chmod u+x compile_game
   chmod u+x run_tests
 ```
+To run them, execute in the following way:
+```sh
+  ./compile_game
+  ./run_tests
+```
