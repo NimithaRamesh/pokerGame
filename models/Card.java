@@ -51,6 +51,7 @@ public class Card {
 	public void toggleHighlighted () {
 		/* toggled by clicking the CardView representation of this card */
 		highlighted = highlighted ? false : true;
+		System.out.println("card set to: " + highlighted);
 	}
 
 	public boolean isHighlighted () {
