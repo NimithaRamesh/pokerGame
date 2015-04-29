@@ -5,9 +5,17 @@ public class PokerGame {
 
 	private Player player;
 	private MainGameFrame frame;
+	private Deck cardDeck;
 
 	PokerGame() {
-		player = new Player(100, new Hand());
+		cardDeck = new Deck();
+
+		Hand initialHand = new Hand();
+		for (int x = 0; x < 5; x++) {
+			initialHand.add(x, cardDeck.dealCard());
+		}
+
+		player = new Player(100, initialHand);
 		frame = new MainGameFrame(player);
 	}
 
