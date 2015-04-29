@@ -31,7 +31,15 @@ public class Hand {
     this.cards[index] = null;
   }
 
+  public void replaceSelected() {
+    Deck cardDeck = new Deck();
+    for( int x = 0; x < MAX_SIZE; x++ ) {
+      if( cards[x].isHighlighted() ) { cards[0] = cardDeck.dealCard(); }
+    }
+  }
+
   private boolean invalidIndex(int index) {
     return (index < 0 || index >= MAX_SIZE);
   }
+
 }
