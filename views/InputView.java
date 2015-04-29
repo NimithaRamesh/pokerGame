@@ -13,7 +13,7 @@ public class InputView extends JPanel {
 	int currentBetAmount = 1;
 	int currentPlayerBalance;
 
-	Boolean betPlaced;
+	boolean betPlaced;
 
 
 	public InputView (int initialPlayerBalance) {

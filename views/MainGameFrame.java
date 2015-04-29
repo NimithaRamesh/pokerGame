@@ -9,10 +9,11 @@ public class MainGameFrame extends JFrame {
 
 	// These are temporary, we'll replace them with fully fleshed out classes later
 	JLabel panelBalanceView;
-	JPanel panelHandView, panelBettingView;
+	JPanel panelHandView;
+	InputView inputView;
 	HandViewer handView;
 
-	MainGameFrame (Player player) {
+	public MainGameFrame (Player player) {
 		setLayout(new BorderLayout());
 		handView = new HandViewer(player.getHand());
 		// panelBalanceView
@@ -27,16 +28,13 @@ public class MainGameFrame extends JFrame {
 		panelHandView.setBackground(new Color(185,238,146));
 		panelHandView.add(handView);
 
-
-		// panelBettingView
-		panelBettingView = new JPanel();
-		panelBettingView.setPreferredSize(new Dimension(800,100));
-		panelBettingView.setBackground(new Color(50,150,200));
+		// inputView
+		inputView = new InputView(player.getBalance());
 
 		// Add elements to JFrame
 		add(panelBalanceView, BorderLayout.NORTH);
 		add(panelHandView, BorderLayout.CENTER);
-		add(panelBettingView, BorderLayout.SOUTH);
+		add(inputView, BorderLayout.SOUTH);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
