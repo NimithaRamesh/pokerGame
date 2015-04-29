@@ -13,12 +13,14 @@ public class HandViewer extends JPanel {
 		setLayout(new GridLayout(1,0,5,0));
 		setBackground(new Color(185,236,146));
 
-		for (int x = 0; x < 5; x++)
-		{
+		for (int x = 0; x < 5; x++) {
 			currentHand[x] = new CardViewer(hand.getCard(x));
 			add(currentHand[x]);
 		}
+	}
 
+	public CardViewer[] getCurrentHand() {
+		return currentHand;
 	}
 	/*
 	public void discardSelected () {
