@@ -15,6 +15,8 @@ public class Card {
 	private final int rank;
 	private final int suit;
 
+	boolean highlighted = false;
+
 	public Card (int rank, int suit) {
 		this.rank = rank;
 		this.suit = suit;
@@ -44,6 +46,15 @@ public class Card {
 
 		return rank + suitAsString;
 
+	}
+
+	public void toggleHighlighted () {
+		/* toggled by clicking the CardView representation of this card */
+		highlighted = highlighted ? false : true;
+	}
+
+	public boolean isHighlighted () {
+		return highlighted;
 	}
 
 

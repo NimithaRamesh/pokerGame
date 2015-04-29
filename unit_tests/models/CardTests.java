@@ -8,5 +8,9 @@ public class CardTests extends UnitTests {
     Card aCard = new Card(5,Card.SPADE);
 
     test(aCard.toString().equals("5s"), "Card.toString()");
+
+    aCard.toggleHighlighted();
+
+    test(aCard.isHighlighted(), "Card.isHighlighted()");
   }
 }
