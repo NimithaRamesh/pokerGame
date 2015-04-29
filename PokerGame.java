@@ -9,7 +9,7 @@ public class PokerGame {
 
 	PokerGame() {
 		player = new Player(100, new Hand());
-		// dealCards();
+		dealCards();
 		frame = new MainGameFrame(player);
 	}
 
