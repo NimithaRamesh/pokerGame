@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 echo "Compiling game files.."
-javac *.java models/*.java views/*.java
-java PokerGame
+javac models/*.java views/*.java controllers/*.java
+java controllers.PokerGame

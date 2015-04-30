@@ -4,8 +4,12 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import models.*;
+import controllers.*;
 
 public class MainGameFrame extends JFrame {
+
+	PokerGame controller;
+	Player player;
 
 	// These are temporary, we'll replace them with fully fleshed out classes later
 	JLabel panelBalanceView;
@@ -13,7 +17,11 @@ public class MainGameFrame extends JFrame {
 	InputView inputView;
 	HandViewer handView;
 
-	public MainGameFrame (Player player) {
+	public MainGameFrame (PokerGame controller, Player player) {
+		// assign vars
+		this.controller = controller;
+		this.player = player;
+
 		setLayout(new BorderLayout());
 		handView = new HandViewer(player.getHand());
 		// panelBalanceView
@@ -29,7 +37,7 @@ public class MainGameFrame extends JFrame {
 		panelHandView.add(handView);
 
 		// inputView
-		inputView = new InputView(player.getBalance());
+		inputView = new InputView(this, player.getBalance());
 
 		// Add elements to JFrame
 		add(panelBalanceView, BorderLayout.NORTH);
@@ -37,5 +45,9 @@ public class MainGameFrame extends JFrame {
 		add(inputView, BorderLayout.SOUTH);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public void pingController() {
+		controller.ping();
 	}
 }

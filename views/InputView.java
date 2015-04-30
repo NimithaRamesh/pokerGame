@@ -7,6 +7,8 @@ import javax.swing.event.*;
 
 public class InputView extends JPanel {
 
+	MainGameFrame gameFrame;
+
 	JButton decrementButton, incrementButton, placeBetButton, discardCardsButton;
 	JLabel betAmount;
 
@@ -16,7 +18,9 @@ public class InputView extends JPanel {
 	boolean betPlaced;
 
 
-	public InputView (int initialPlayerBalance) {
+	public InputView (MainGameFrame gameFrame, int initialPlayerBalance) {
+		// assign vars
+		this.gameFrame = gameFrame;
 
 		// configure frame layout
 		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
@@ -106,7 +110,7 @@ public class InputView extends JPanel {
 
 		@Override
 		public void mouseClicked (MouseEvent e) {
-			betPlaced = true;
+			gameFrame.pingController();
 		}
 
 	}
