@@ -12,5 +12,8 @@ public class CardTests extends UnitTests {
     aCard.toggleHighlighted();
 
     test(aCard.isHighlighted(), "Card.isHighlighted()");
+
+    test(aCard.getRank() == 5, "Card.getRank()");
+    test(aCard.getSuit() == Card.SPADE, "Card.getSuit()");
   }
 }

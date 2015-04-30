@@ -48,6 +48,14 @@ public class Card {
 
 	}
 
+	public int getRank() {
+		return rank;
+	}
+
+	public int getSuit() {
+		return suit;
+	}
+
 	public void toggleHighlighted () {
 		/* toggled by clicking the CardView representation of this card */
 		highlighted = highlighted ? false : true;
