@@ -23,5 +23,11 @@ public class HandTests extends UnitTests {
 
     testHand.remove(2);
     test((testHand.getCard(2) == null), "Hand.remove() with valid index");
+
+    testHand.add(2, card3);
+    testHand.add(3, card1);
+    testHand.add(4, card1);
+    test(testHand.isPresent(5, Card.SPADE), "Hand.isPresent() when card is present");
+    test(!testHand.isPresent(5, Card.CLUB), "Hand.isPresent() when card is not present");
   }
 }

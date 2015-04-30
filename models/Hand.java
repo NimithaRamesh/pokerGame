@@ -38,6 +38,15 @@ public class Hand {
     }
   }
 
+  public boolean isPresent(int rank, int suit) {
+    for( int x = 0; x < MAX_SIZE; x++ ) {
+      if( cards[x].getRank() == rank && cards[x].getSuit() == suit ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   private boolean invalidIndex(int index) {
     return (index < 0 || index >= MAX_SIZE);
   }
