@@ -143,7 +143,7 @@ public class InputView extends JPanel {
 		public void mouseClicked (MouseEvent e) {
 			setUserActionButtonBetMode();
 			// holding pattern for now
-			System.out.println("DiscardCardsOnClick() called");
+			gameFrame.relayDiscardCommandToController();
 		}
 	}
 

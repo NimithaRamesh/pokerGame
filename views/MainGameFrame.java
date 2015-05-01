@@ -51,6 +51,11 @@ public class MainGameFrame extends JFrame {
 		controller.placeBet(betAmount);
 	}
 
+	public void relayDiscardCommandToController () {
+		// controller.discardSelected();
+		return;	// temp
+	}
+
 	public void updateBalanceDisplay (int playerBalance) {
 		panelBalanceView.setText("Player Balance: " + playerBalance);
 	}
