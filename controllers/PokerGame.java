@@ -29,7 +29,7 @@ public class PokerGame {
 
 	// replaces selected cards with new ones
 	public void reDealCards() {
-		player.getHand().replaceSelected();
+		player.getHand().replaceHighlighted();
 	}
 
 	public void placeBet(int betAmount) {

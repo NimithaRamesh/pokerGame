@@ -31,10 +31,10 @@ public class Hand {
     this.cards[index] = null;
   }
 
-  public void replaceSelected() {
+  public void replaceHighlighted() {
     Deck cardDeck = new Deck();
     for( int x = 0; x < MAX_SIZE; x++ ) {
-      if( cards[x].isHighlighted() ) { cards[0] = cardDeck.dealCard(); }
+      if( cards[x].isHighlighted() ) { cards[x] = cardDeck.dealCard(); }
     }
   }
 

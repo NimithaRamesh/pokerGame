@@ -53,7 +53,10 @@ public class MainGameFrame extends JFrame {
 
 	public void relayDiscardCommandToController () {
 		// controller.discardSelected();
-		return;	// temp
+		controller.reDealCards();
+		handView.populateCardViews();
+		panelHandView.revalidate();
+		panelHandView.repaint();
 	}
 
 	public void updateBalanceDisplay (int playerBalance) {

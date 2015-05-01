@@ -96,7 +96,7 @@ public class InputView extends JPanel {
 
 
 	class IncrementBetOnClick extends MouseInputAdapter {
-		/* Increments currentBetAmount by 1 up to 
+		/* Increments currentBetAmount by 1 up to
 			a maximum of the player's current balance */
 
 		@Override
