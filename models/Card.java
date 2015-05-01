@@ -7,7 +7,7 @@ public class Card {
 	public final static int QUEEN = 12;
 	public final static int KING = 13;
 
-	public final static int CLUB = 100;
+	public final static int CLUB = 100            ;
 	public final static int DIAMOND = 101;
 	public final static int HEART = 102;
 	public final static int SPADE = 103;

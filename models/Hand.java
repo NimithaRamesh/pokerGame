@@ -15,6 +15,9 @@ public class Hand {
   public Card[] getCards() {
     return cards;
   }
+  /*public int size(Card[] cards){
+		return cards.size();
+	}*/
 
   public Card getCard(int index) {
     if ( invalidIndex(index) ) { return null; }
