@@ -34,7 +34,6 @@ public class MainGameFrame extends JFrame {
 		panelHandView.setPreferredSize(new Dimension(800,450));
 		panelHandView.setBorder(new EmptyBorder(100, 0, 0, 0));
 		panelHandView.setBackground(new Color(185,238,146));
-		panelHandView.add(handView);
 
 		// inputView
 		inputView = new InputView(this, player);
@@ -49,11 +48,11 @@ public class MainGameFrame extends JFrame {
 
 	public void relayBetAmountToController (int betAmount) {
 		controller.placeBet(betAmount);
+		panelHandView.add(handView);
 	}
 
 	public void relayDiscardCommandToController () {
-		// controller.discardSelected();
-		controller.reDealCards();
+		controller.discardSelected();
 		handView.populateCardViews();
 		panelHandView.revalidate();
 		panelHandView.repaint();

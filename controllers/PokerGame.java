@@ -21,15 +21,15 @@ public class PokerGame {
 
 	// deals 5 cards to the player's hand
 	public void dealCards() {
-		Deck cardDeck = new Deck();
+		cardDeck = new Deck();
 		for (int x = 0; x < 5; x++) {
 			player.getHand().add(x, cardDeck.dealCard());
 		}
 	}
 
 	// replaces selected cards with new ones
-	public void reDealCards() {
-		player.getHand().replaceHighlighted();
+	public void discardSelected () {
+		player.getHand().replaceHighlighted(cardDeck);
 	}
 
 	public void placeBet(int betAmount) {

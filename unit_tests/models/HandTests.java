@@ -31,7 +31,7 @@ public class HandTests extends UnitTests {
     test(!testHand.isPresent(5, Card.CLUB), "Hand.isPresent() when card is not present");
 
     card2.toggleHighlighted();
-    testHand.replaceHighlighted();
+    testHand.replaceHighlighted(new Deck());
     test(!testHand.getCard(1).equals(card2), "Hand.replaceHighlighted()");
   }
 }
