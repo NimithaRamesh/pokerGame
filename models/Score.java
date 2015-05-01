@@ -3,7 +3,7 @@ import java.util.*;
 
 class Score{
 
-  private int score;
+  private int[] score;
   private final static int MAX_SIZE = 5;
   private Hand myCards;
   private int[] cardValues;
@@ -13,16 +13,17 @@ class Score{
     this.myCards=new Hand();
     int[] cardRanks= new int[5];
     for(int i=0; i<5; i++){
-      cardRanks[i] = myCards[i].getRank();
+      cardRanks[i] = myCards.getCard(i).getRank();
     }
+    score=new int[MAX_SIZE];
     score=numberOfCards(myCards);
   }
 
-  public int[] numberOfCards(){
+  public int[] numberOfCards(Hand myHand){
     cardValues=new int[13];
     int ace=0,two=0,three=0,four=0,five=0,six=0,seven=0,eight=0,nine=0,ten=0,jack=0,queen=0,king=0;
     for(int i=0;i<5;i++){
-      switch(myCards[i].getRank()){
+      switch(myHand.getCard(i).getRank()){
         case 1: ace=ace+1;
                 cardValues[0]=ace;
                 break;
@@ -64,14 +65,14 @@ class Score{
                 break;
         default:break;
       }
-      return cardValues;
       //String nothing = currentCards[i].toString();
     }
+    return cardValues;
   }
 
   public boolean royalFlush(){
-    while(myCards.sameSuit()){
-      int theSuit=myCards[0].getSuit();
+    while(sameSuit(myCards)){
+      int theSuit=myCards.getCard(0).getSuit();
       if(myCards.isPresent(10,theSuit)&&myCards.isPresent(11,theSuit)&&myCards.isPresent(12,theSuit)&&myCards.isPresent(13,theSuit)&&myCards.isPresent(1,theSuit)){
         return true;
       }
@@ -79,12 +80,12 @@ class Score{
     return false;
   }
 
-  public boolean sameSuit(){
-    int suit1=myCards[0].getSuit();
-    int suit2=myCards[1].getSuit();
-    int suit3=myCards[2].getSuit();
-    int suit4=myCards[3].getSuit();
-    int suit5=myCards[4].getSuit();
+  public boolean sameSuit(Hand myHand){
+    int suit1=myHand.getCard(0).getSuit();
+    int suit2=myHand.getCard(1).getSuit();
+    int suit3=myHand.getCard(2).getSuit();
+    int suit4=myHand.getCard(3).getSuit();
+    int suit5=myHand.getCard(4).getSuit();
     if(suit1==100&&suit2==100&&suit3==100&&suit4==100&&suit5==100)
       return true;
     else if(suit1==101&&suit2==101&&suit3==101&&suit4==101&&suit5==101)
@@ -97,13 +98,13 @@ class Score{
       return false;
   }
 
-  public boolean inOrder(){
+  public boolean inOrder(Hand myHand){
     int[] numbers=new int[MAX_SIZE];
     int[] order=new int[MAX_SIZE];
     for(int i=0;i<MAX_SIZE;i++){
       order[i]=i;
     }
-    numbers=this.numberOfCards();
+    numbers=numberOfCards(myHand);
     Arrays.sort(numbers);
     for(int i=0;i<MAX_SIZE;i++){
       numbers[i]=numbers[i]-numbers[0];
@@ -115,7 +116,7 @@ class Score{
   }
 
   public boolean straightFlush(){
-    if(myCards.sameSuit()&&myCards.inOrder()){
+    if(sameSuit(myCards)&&inOrder(myCards)){
       return true;
     }
     return false;
@@ -190,9 +191,9 @@ class Score{
     }
   }
 
-  public String winningCombination(){
+  /*public String winningCombination(){
 
-  }
+  }*/
 
   public static void main(String[] args){
     System.out.println("The combination is : ");
