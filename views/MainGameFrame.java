@@ -37,7 +37,7 @@ public class MainGameFrame extends JFrame {
 		panelHandView.add(handView);
 
 		// inputView
-		inputView = new InputView(this, player.getBalance());
+		inputView = new InputView(this, player);
 
 		// Add elements to JFrame
 		add(panelBalanceView, BorderLayout.NORTH);
@@ -47,7 +47,11 @@ public class MainGameFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	public void pingController() {
-		controller.ping();
+	public void relayBetAmountToController (int betAmount) {
+		controller.placeBet(betAmount);
+	}
+
+	public void updateBalanceDisplay (int playerBalance) {
+		panelBalanceView.setText("Player Balance: " + playerBalance);
 	}
 }

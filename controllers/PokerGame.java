@@ -32,8 +32,13 @@ public class PokerGame {
 		player.getHand().replaceSelected();
 	}
 
-	public void ping() {
-		System.out.println("ping");
+	public void placeBet(int betAmount) {
+		// deduct amount from player
+		player.setBalance(player.getBalance() - betAmount);
+
+		// update Balance Display
+		frame.updateBalanceDisplay(player.getBalance());
+
 	}
 
 	public static void main (String[] args) {

@@ -4,10 +4,12 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.event.*;
+import models.*;
 
 public class InputView extends JPanel {
 
 	MainGameFrame gameFrame;
+	Player player;
 
 	JButton decrementButton, incrementButton, placeBetButton, discardCardsButton;
 	JLabel betAmount;
@@ -15,19 +17,14 @@ public class InputView extends JPanel {
 	int currentBetAmount = 1;
 	int currentPlayerBalance;
 
-	boolean betPlaced;
-
-
-	public InputView (MainGameFrame gameFrame, int initialPlayerBalance) {
+	public InputView (MainGameFrame gameFrame, Player player) {
 		// assign vars
 		this.gameFrame = gameFrame;
+		this.player = player;
 
 		// configure frame layout
 		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 		setPreferredSize(new Dimension(800,100));
-
-		// retrieve initial player balance
-		currentPlayerBalance = initialPlayerBalance;
 
 		// configure decrement button
 		decrementButton = new JButton("-1");
@@ -50,27 +47,8 @@ public class InputView extends JPanel {
 		add(incrementButton);
 		add(placeBetButton);
 
-
 	}
 
-	public int getBet (int currentPlayerBalance) {
-
-		// store new player balance
-		this.currentPlayerBalance = currentPlayerBalance;
-
-		betPlaced = false;
-
-		while (!betPlaced)
-		{
-			// betPlaced will toggle to true upon click of placeBetButton
-			// until then just chill out
-		}
-
-		System.out.println("Bet amount of " + currentBetAmount + " was placed.");
-
-		return currentBetAmount;
-
-	}
 
 	class IncrementBetOnClick extends MouseInputAdapter {
 		/* this class will increment the bet amount and update
@@ -110,7 +88,7 @@ public class InputView extends JPanel {
 
 		@Override
 		public void mouseClicked (MouseEvent e) {
-			gameFrame.pingController();
+			gameFrame.relayBetAmountToController(currentBetAmount);
 		}
 
 	}
