@@ -42,6 +42,7 @@ public class PokerGame {
 	}
 
 	public static void main (String[] args) {
+		// some random comment to test merging
 		PokerGame game = new PokerGame();
 		game.getFrame().setSize(800,600);
 		game.getFrame().setResizable(false);
