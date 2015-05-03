@@ -3,15 +3,13 @@ package models;
 public class Player {
 
 	private int balance;
-	private Hand hand;
 
   public Player() {
-    this(100, new Hand());
+    this(100);
   }
 
-	public Player(int balance, Hand hand) {
+	public Player(int balance) {
 		this.balance = balance;
-		this.hand = hand;
 	}
 
   public int getBalance() {
@@ -21,12 +19,5 @@ public class Player {
   public void setBalance(int balance) {
     this.balance = balance;
   }
-
-  public Hand getHand() {
-    return hand;
-  }
-
-  public void setHand(Hand hand) {
-    this.hand = hand;
-  }
+  
 }

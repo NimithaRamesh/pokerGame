@@ -1,12 +1,17 @@
 package views;
 
+import models.*;
+import controllers.*;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.event.*;
-import models.*;
+
 
 public class InputView extends JPanel {
+
+	ViewController viewController;
 
 	// Betting Controls and Readout
 	JButton decrementButton = new JButton("-1");
@@ -23,16 +28,14 @@ public class InputView extends JPanel {
 	JButton userActionButton = new JButton();
 
 	int currentBetAmount = 1;
+	int currentPlayerBalance;
 
-	// vars established in constructor
-	MainGameFrame gameFrame;
-	Player player;
 
-	public InputView (MainGameFrame gameFrame, Player player) {
+	public InputView (ViewController vc, int initPlayerBalance) {
 
 		// Assign variables
-		this.gameFrame = gameFrame;
-		this.player = player;
+		this.viewController = vc;
+		this.currentPlayerBalance = initPlayerBalance;
 
 		//	Configure frame layout along x-axis
 		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
@@ -102,7 +105,7 @@ public class InputView extends JPanel {
 		@Override
 		public void mouseClicked (MouseEvent e) {
 
-			if (currentBetAmount < player.getBalance()) {
+			if (currentBetAmount < currentPlayerBalance) {
 				currentBetAmount+= 1;
 				betAmount.setText(String.valueOf(currentBetAmount));
 			}
@@ -130,7 +133,7 @@ public class InputView extends JPanel {
 		@Override
 		public void mouseClicked (MouseEvent e) {
 			setUserActionButtonDiscardMode();
-			gameFrame.relayBetAmountToController(currentBetAmount);
+			viewController.relayBetToGameController(currentBetAmount);
 		}
 
 	}
@@ -143,7 +146,7 @@ public class InputView extends JPanel {
 		public void mouseClicked (MouseEvent e) {
 			setUserActionButtonBetMode();
 			// holding pattern for now
-			gameFrame.relayDiscardCommandToController();
+			viewController.relayDiscardCommandToGameController();
 		}
 	}
 

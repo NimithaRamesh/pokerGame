@@ -11,9 +11,6 @@ class PokerUnitTests {
 		PlayerTests.run();
 		HandTests.run();
 
-		// View tests
-		HandViewerTests.run();
-
 		UnitTests.report();
 	}
 }

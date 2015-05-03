@@ -1,64 +1,54 @@
 package views;
 
+import controllers.*;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import models.*;
-import controllers.*;
+
 
 public class MainGameFrame extends JFrame {
 
-	PokerGame controller;
-	Player player;
+	ViewController viewController;
 
-	// These are temporary, we'll replace them with fully fleshed out classes later
-	JLabel panelBalanceView;
-	JPanel panelHandView;
-	InputView inputView;
-	HandViewer handView;
+	public JLabel balanceView = new JLabel("Player Balance: 100");
+	public JPanel playAreaView = new JPanel();
+	public InputView inputView;
 
-	public MainGameFrame (PokerGame controller, Player player) {
-		// assign vars
-		this.controller = controller;
-		this.player = player;
+	public MainGameFrame (ViewController vc) {
 
+
+		setSize(800,600);
+		setResizable(false);
+		setTitle("Pokerface");
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// Assign vars
+		this.viewController = vc;
+		inputView = new InputView(vc,100);
+
+		// Configure frame
 		setLayout(new BorderLayout());
-		handView = new HandViewer(player.getHand());
-		// panelBalanceView
-		panelBalanceView = new JLabel("Player Balance: " + player.getBalance());
-		panelBalanceView.setPreferredSize(new Dimension(800,50));
-		panelBalanceView.setHorizontalAlignment(SwingConstants.CENTER);
 
-		// panelHandView
-		panelHandView = new JPanel();
-		panelHandView.setPreferredSize(new Dimension(800,450));
-		panelHandView.setBorder(new EmptyBorder(100, 0, 0, 0));
-		panelHandView.setBackground(new Color(185,238,146));
 
-		// inputView
-		inputView = new InputView(this, player);
+		// Configure balanceView;
+		balanceView.setPreferredSize(new Dimension(800,50));
+		balanceView.setHorizontalAlignment(SwingConstants.CENTER);
 
-		// Add elements to JFrame
-		add(panelBalanceView, BorderLayout.NORTH);
-		add(panelHandView, BorderLayout.CENTER);
+		// Configure playAreaView
+		playAreaView.setLayout(new GridLayout(1,0,0,0));
+		playAreaView.setPreferredSize(new Dimension(800,450));
+		playAreaView.setBorder(new EmptyBorder(100,0,100,0));
+		playAreaView.setBackground(new Color(50,150,200));
+
+		// Add elements to frame
+		add(balanceView, BorderLayout.NORTH);
+		add(playAreaView, BorderLayout.CENTER);
 		add(inputView, BorderLayout.SOUTH);
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+
 	}
 
-	public void relayBetAmountToController (int betAmount) {
-		controller.placeBet(betAmount);
-		panelHandView.add(handView);
-	}
-
-	public void relayDiscardCommandToController () {
-		controller.discardSelected();
-		handView.populateCardViews();
-		panelHandView.revalidate();
-		panelHandView.repaint();
-	}
-
-	public void updateBalanceDisplay (int playerBalance) {
-		panelBalanceView.setText("Player Balance: " + playerBalance);
-	}
 }

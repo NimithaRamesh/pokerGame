@@ -5,50 +5,65 @@ import views.*;
 
 public class PokerGame {
 
-	private Player player;
-	private MainGameFrame frame;
-	private Deck cardDeck;
+	ViewController viewController;
+	Player player = new Player(100);
+	Deck deck;
+	Hand hand;
 
-	PokerGame() {
-		player = new Player(100, new Hand());
-		dealCards();
-		frame = new MainGameFrame(this, player);
+	PokerGame () {
+		// Set vars
+		viewController = new ViewController(this);
 	}
 
-	public MainGameFrame getFrame() {
-		return frame;
-	}
+	public void placeBet (int amount) {
 
-	// deals 5 cards to the player's hand
-	public void dealCards() {
-		cardDeck = new Deck();
-		for (int x = 0; x < 5; x++) {
-			player.getHand().add(x, cardDeck.dealCard());
+		// Deduct balance
+		player.setBalance(player.getBalance() - amount);
+
+		// Update balance view
+		viewController.updateBalanceViewAmount(player.getBalance());
+
+		// Generate new deck for round
+		deck = new Deck();
+
+		// Generate hand from deck
+		hand = new Hand();
+
+		// Add cards to hand
+		for (int index = 0; index < 5; index++) {
+			hand.add(index,deck.dealCard());
 		}
+
+		// Clear any previous cards off play area
+		viewController.clearPlayArea();
+
+		// Load hand into playArea
+		viewController.loadHandInPlayArea(hand);
+
+		// Notify viewController of new mode
+		viewController.setMode(ViewController.MODE_DISCARD);
+		
 	}
 
-	// replaces selected cards with new ones
 	public void discardSelected () {
-		player.getHand().replaceHighlighted(cardDeck);
-	}
+		// Replace highlighted
+		hand.replaceHighlighted(deck);
 
-	public void placeBet(int betAmount) {
-		// deduct amount from player
-		player.setBalance(player.getBalance() - betAmount);
+		// Clear playArea
+		viewController.clearPlayArea();
 
-		// update Balance Display
-		frame.updateBalanceDisplay(player.getBalance());
+		// Load hand into play area
+		viewController.loadHandInPlayArea(hand);
+
+		// Notify viewController of new mode
+		viewController.setMode(ViewController.MODE_BET);
 
 	}
 
 	public static void main (String[] args) {
-		// some random comment to test merging
+
 		PokerGame game = new PokerGame();
-		game.getFrame().setSize(800,600);
-		game.getFrame().setResizable(false);
-		game.getFrame().setTitle("TestFrame");
-		game.getFrame().setLocationRelativeTo(null);
-		game.getFrame().setVisible(true);
+
 	}
 
 }
