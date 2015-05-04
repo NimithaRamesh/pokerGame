@@ -231,7 +231,6 @@ public class Score{
 
   //*Returns an integer array
   public int[] numberOfCards(Hand myHand){
-    int[] cardNumbers=new int[13];
     int ace=0,two=0,three=0,four=0,five=0,six=0,seven=0,eight=0,nine=0,ten=0,jack=0,queen=0,king=0;
     for(int i=0;i<5;i++){
       switch(myHand.getCard(i).getRank()){
@@ -278,7 +277,7 @@ public class Score{
       }
       //String nothing = currentCards[i].toString();
     }
-    return cardNumbers;
+    return cardValues;
   }
 
   /*public static void main(String[] args){
