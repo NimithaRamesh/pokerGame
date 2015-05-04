@@ -59,13 +59,15 @@ public class Score{
   //*Royal Flush: five consecutive denomination cards of the same suit,
   //*starting from 10 and ending with an ace
   public boolean royalFlush(){
-    while(sameSuit(myCards)){
+    if(sameSuit(myCards)){
       int theSuit=myCards.getCard(0).getSuit();
       if(myCards.isPresent(10,theSuit)&&myCards.isPresent(11,theSuit)&&myCards.isPresent(12,theSuit)&&myCards.isPresent(13,theSuit)&&myCards.isPresent(1,theSuit)){
         return true;
       }
     }
-    return false;
+    else{
+      return false;
+    }
   }
 
   //*Straight Flush: five consecutive denomination cards of the same suit.
@@ -283,6 +285,7 @@ public class Score{
   }
 
   public static void main(String[] args){
-    System.out.println("The combination is : ");
+    Hand testHand = new Hand();
+    testHand
   }
 }
