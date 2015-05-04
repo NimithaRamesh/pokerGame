@@ -50,7 +50,7 @@ class Score{
       user.balance*=1;
     }
     else{
-      user.balance*=0;
+      user.balance-=25;
     }
     return user.balance;
   }
