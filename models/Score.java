@@ -1,7 +1,7 @@
 package models;
 import java.util.*;
 
-class Score{
+public class Score{
 
   private int score;
   private final static int MAX_SIZE = 5;
@@ -38,11 +38,14 @@ class Score{
     else if(flush()){
       score=5;
     }
-    else if(threeOfAKind()){
+    else if(straight()){
       score=4;
     }
-    else if(twoPair()){
+    else if(threeOfAKind()){
       score=3;
+    }
+    else if(twoPair()){
+      score=2;
     }
     else if(pair()){
       score=1;
