@@ -284,8 +284,8 @@ public class Score{
     return cardNumbers;
   }
 
-  public static void main(String[] args){
+  /*public static void main(String[] args){
     Hand testHand = new Hand();
-    testHand
-  }
+
+  }*/
 }
