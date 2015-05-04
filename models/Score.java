@@ -77,7 +77,9 @@ public class Score{
     else if(myCards.isPresent(10,straightSuit)&&myCards.isPresent(11,straightSuit)&&myCards.isPresent(12,straightSuit)&&myCards.isPresent(13,straightSuit)&&myCards.isPresent(1,straightSuit)){
       return true;
     }
-    return false;
+    else{
+      return false;
+    }
   }
 
   //*Four of a kind: four cards of the same denomination.
@@ -86,7 +88,7 @@ public class Score{
     cardValues=numberOfCards(myCards);
     for(int i=0;i<13;i++){
       if(cardValues[i]==4){
-        count++;
+        count=1;
       }
     }
     if(count==1){
@@ -100,7 +102,7 @@ public class Score{
   //Full House: a set of three cards of the same denomination plus
   //*a set of two cards of the same denomination.
   public boolean fullHouse(){
-    if(this.pair()&&this.threeOfAKind()){
+    if(pair()&&threeOfAKind()){
       return true;
     }
       return false;
@@ -111,7 +113,9 @@ public class Score{
     if(sameSuit(myCards)){
       return true;
     }
-    return false;
+    else{
+      return false;
+    }
   }
 
   //*Straight: five consecutive denomination cards of different suit.
@@ -119,7 +123,9 @@ public class Score{
     if(inOrder(myCards)){
       return true;
     }
-    return false;
+    else{
+      return false;
+    }
   }
 
   //*Three of a Kind: three cards of the same denomination.
@@ -128,7 +134,7 @@ public class Score{
     cardValues=numberOfCards(myCards);
     for(int i=0;i<13;i++){
       if(cardValues[i]==3){
-        count++;
+        count=1;
       }
     }
     if(count==1){
