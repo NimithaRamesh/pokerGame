@@ -37,7 +37,7 @@ public class MainGameFrame extends JFrame {
 		balanceView.setHorizontalAlignment(SwingConstants.CENTER);
 
 		// Configure playAreaView
-		playAreaView.setLayout(new GridLayout(1,0,0,0));
+		playAreaView.setLayout(new GridLayout(1,0,2,0));
 		playAreaView.setPreferredSize(new Dimension(800,450));
 		playAreaView.setBorder(new EmptyBorder(100,0,100,0));
 		playAreaView.setBackground(new Color(50,150,200));

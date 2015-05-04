@@ -13,7 +13,6 @@ public class CardView extends JLabel {
 	ViewController viewController;
 	Card card;
 	
-
 	public CardView (ViewController viewController, Card card) {
 		// Place image
 		super(new ImageIcon("images/" + card.toString() + ".png"));
@@ -21,10 +20,7 @@ public class CardView extends JLabel {
 		// Assign vars
 		this.viewController = viewController;
 		this.card = card;
-		
-		// Build border
-		setBorder(BorderFactory.createLineBorder(new Color(0,0,0),4));
-
+	
 		// Listener class for requesting highlight/unhighlight
 		addMouseListener(new ToggleHighlightListener());
 
@@ -38,14 +34,14 @@ public class CardView extends JLabel {
 			// Need clearance from ViewController to effect highlight
 			if (!card.isHighlighted() && viewController.canHighlight()) {
 				card.toggleHighlighted();
-				setBorder(BorderFactory.createLineBorder(new Color(255,255,255),4));
+				setBorder(BorderFactory.createMatteBorder(0, 0, 5, 0, new Color(100,200,250)));
 				return;
 			}
 
 			if (card.isHighlighted()) {
 				card.toggleHighlighted();
 				viewController.cardUnhilighted();
-				setBorder(BorderFactory.createLineBorder(new Color(0,0,0),4));
+				setBorder(null);
 				return;
 			}
 
