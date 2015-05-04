@@ -193,16 +193,21 @@ public class Score{
     int suit3=myHand.getCard(2).getSuit();
     int suit4=myHand.getCard(3).getSuit();
     int suit5=myHand.getCard(4).getSuit();
-    if(suit1==100&&suit2==100&&suit3==100&&suit4==100&&suit5==100)
+    if(suit1==100&&suit2==100&&suit3==100&&suit4==100&&suit5==100){
       return true;
-    else if(suit1==101&&suit2==101&&suit3==101&&suit4==101&&suit5==101)
+    }
+    else if(suit1==101&&suit2==101&&suit3==101&&suit4==101&&suit5==101){
       return true;
-    else if(suit1==102&&suit2==102&&suit3==102&&suit4==102&&suit5==102)
+    }
+    else if(suit1==102&&suit2==102&&suit3==102&&suit4==102&&suit5==102){
       return true;
-    else if(suit1==103&&suit2==103&&suit3==103&&suit4==103&&suit5==103)
+    }
+    else if(suit1==103&&suit2==103&&suit3==103&&suit4==103&&suit5==103){
       return true;
-    else
+    }
+    else{
       return false;
+    }
   }
 
   //*Checks if all cards in Hand are in ascending order
