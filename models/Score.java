@@ -3,18 +3,16 @@ import java.util.*;
 
 class Score{
 
-  private int[] score;
+  private int score;
   private final static int MAX_SIZE = 5;
   private Hand myCards;
   private int[] cardRanks;
   private int[] cardValues;
-  private Player user;
 
   //Note to self: Call numberOfMethods() wherever you use cardValues!@!!!!@!!!!!
 
-  public Score(){
-    this.myCards=new Hand();
-    user = new Player(100,myCards);
+  public Score(Hand hand){
+    myCards=hand;
     cardRanks= new int[5];
     cardValues=new int[13];
     for(int i=0; i<5; i++){
@@ -25,34 +23,34 @@ class Score{
   }
 
   public int scoreMultiplier(){
-    if(user.hand.royalFlush()){
-      user.balance*=25;
+    if(royalFlush()){
+      score=25;
     }
-    else if(user.hand.straightFlush()){
-      user.balance*=20;
+    else if(straightFlush()){
+      score=20;
     }
-    else if(user.hand.fourOfAKind()){
-      user.balance*=15;
+    else if(fourOfAKind()){
+      score=15;
     }
-    else if(user.hand.fullHouse()){
-      user.balance*=10;
+    else if(fullHouse()){
+      score=10;
     }
-    else if(user.hand.flush()){
-      user.balance*=5;
+    else if(flush()){
+      score=5;
     }
-    else if(user.hand.threeOfAKind()){
-      user.balance*=4;
+    else if(threeOfAKind()){
+      score=4;
     }
-    else if(user.hand.twoPair()){
-      user.balance*=3;
+    else if(twoPair()){
+      score=3;
     }
-    else if(user.hand.pair()){
-      user.balance*=1;
+    else if(pair()){
+      score=1;
     }
     else{
-      user.balance-=25;
+      score=0;
     }
-    return user.balance;
+    return score;
   }
 
   //*Royal Flush: five consecutive denomination cards of the same suit,
