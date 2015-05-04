@@ -65,9 +65,7 @@ public class Score{
         return true;
       }
     }
-    else{
-      return false;
-    }
+    return false;
   }
 
   //*Straight Flush: five consecutive denomination cards of the same suit.
@@ -224,12 +222,11 @@ public class Score{
     }
     Arrays.sort(numbers);
     for(int i=0;i<MAX_SIZE;i++){
-      numbers[i]=numbers[i]-numbers[0];
+      if (!(order[i] == numbers[i]-numbers[0])) {
+        return false;
+      }
     }
-    if(numbers==order){
-      return true;
-    }
-    return false;
+    return true;
   }
 
   //*Returns an integer array
