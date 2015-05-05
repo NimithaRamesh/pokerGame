@@ -9,6 +9,7 @@ public class PokerGame {
 	Player player = new Player(100);
 	Deck deck;
 	Hand hand;
+	int currentBet;
 
 	PokerGame () {
 		// Set vars
@@ -16,11 +17,12 @@ public class PokerGame {
 	}
 
 	public void placeBet (int amount) {
+		// Set current bet
+		currentBet = amount;
 
-		// Deduct balance
-		player.setBalance(player.getBalance() - amount);
+		// Deduct balance and update balance view
+		incrementAndUpdatePlayerBalance(-amount);
 
-		// Update balance view
 		viewController.updateBalanceViewAmount(player.getBalance());
 
 		// Update console
@@ -45,10 +47,12 @@ public class PokerGame {
 
 		// Notify viewController of new mode
 		viewController.setMode(ViewController.MODE_DISCARD);
-		
+
 	}
 
 	public void discardSelected () {
+		int scoreMultiplier;
+		Score score = new Score(hand);
 		// Replace highlighted
 		hand.replaceHighlighted(deck);
 
@@ -58,10 +62,21 @@ public class PokerGame {
 		// Load hand into play area
 		viewController.loadHandInPlayArea(hand);
 
+		// Apply score multiplier
+		scoreMultiplier = score.scoreMultiplier();
+		incrementAndUpdatePlayerBalance(currentBet * scoreMultiplier);
+
 		// Notify viewController of new mode
 		// We'll move this once we fully flesh out the loop
 		viewController.setMode(ViewController.MODE_BET);
 
+	}
+
+	private void incrementAndUpdatePlayerBalance(int increment) {
+		// Increment player balance
+		player.setBalance(player.getBalance() + increment);
+		// Update balance view
+		viewController.updateBalanceViewAmount(player.getBalance());
 	}
 
 	public static void main (String[] args) {
