@@ -102,10 +102,10 @@ public class Score{
   //Full House: a set of three cards of the same denomination plus
   //*a set of two cards of the same denomination.
   public boolean fullHouse(){
-    if(pair()&&threeOfAKind()){
+    if(this.fullHousePair()&&this.threeOfAKind()){
       return true;
     }
-      return false;
+    return false;
   }
 
   //*Flush: five non-consecutive denomination cards of the same suit.
@@ -174,6 +174,22 @@ public class Score{
     }
     if(cardValues[0]==2){ //Checks for an Ace pair
       count++;
+    }
+    if(count==1){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  public boolean fullHousePair(){
+    int count=0;
+    cardValues=numberOfCards(myCards);
+    for(int i=0;i<13;i++){
+      if(cardValues[i]==2){
+        count=1;
+      }
     }
     if(count==1){
       return true;
