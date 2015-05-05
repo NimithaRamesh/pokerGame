@@ -24,22 +24,22 @@ public class Score{
 
   public int scoreMultiplier(){
     if(royalFlush()){
-      score=25;
+      score=250;
     }
     else if(straightFlush()){
-      score=20;
+      score=50;
     }
     else if(fourOfAKind()){
-      score=15;
+      score=25;
     }
     else if(fullHouse()){
-      score=10;
+      score=9;
     }
     else if(flush()){
-      score=5;
+      score=6;
     }
     else if(straight()){
-      score=4;
+      score=5;
     }
     else if(threeOfAKind()){
       score=3;
@@ -54,6 +54,24 @@ public class Score{
       score=0;
     }
     return score;
+  }
+
+  public String toString(){
+    String combo;
+    int score=scoreMultiplier();
+    switch(score){
+      case 250: combo="Royal Flush";break;
+      case 50: combo="Straight Flush";break;
+      case 25: combo="Four of a Kind";break;
+      case 9: combo="Full House";break;
+      case 6: combo="Flush";break;
+      case 5: combo="Straight";break;
+      case 3: combo="Three of a Kind";break;
+      case 2: combo="Two Pair";break;
+      case 1: combo="Pair";break;
+      default:combo="No combination";
+    }
+    return combo;
   }
 
   //*Royal Flush: five consecutive denomination cards of the same suit,
