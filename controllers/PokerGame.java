@@ -23,6 +23,9 @@ public class PokerGame {
 		// Update balance view
 		viewController.updateBalanceViewAmount(player.getBalance());
 
+		// Update console
+		viewController.updateOutputConsole(OutputConsole.BET_PLACED,amount);
+
 		// Generate new deck for round
 		deck = new Deck();
 
@@ -56,6 +59,7 @@ public class PokerGame {
 		viewController.loadHandInPlayArea(hand);
 
 		// Notify viewController of new mode
+		// We'll move this once we fully flesh out the loop
 		viewController.setMode(ViewController.MODE_BET);
 
 	}

@@ -27,6 +27,9 @@ public class InputView extends JPanel {
 	//PlaceBet Button
 	JButton userActionButton = new JButton();
 
+	//Output console
+	public OutputConsole outputConsole = new OutputConsole();
+
 	int currentBetAmount = 1;
 	int currentPlayerBalance;
 
@@ -37,6 +40,9 @@ public class InputView extends JPanel {
 		this.viewController = vc;
 		this.currentPlayerBalance = initPlayerBalance;
 
+		// Configure betAmount
+		betAmount.setFont(new Font("Arial",Font.PLAIN,18));
+
 		//	Configure frame layout along x-axis
 		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 		setPreferredSize(new Dimension(800,100));
@@ -46,10 +52,16 @@ public class InputView extends JPanel {
 		setUserActionButtonBetMode();
 
 		// add elements to frame
+		add(Box.createRigidArea(new Dimension(10, 0)));
 		add(decrementButton);
+		add(Box.createRigidArea(new Dimension(10, 0)));
 		add(betAmount);
+		add(Box.createRigidArea(new Dimension(10, 0)));
 		add(incrementButton);
+		add(Box.createRigidArea(new Dimension(10, 0)));
 		add(userActionButton);
+		add(Box.createRigidArea(new Dimension(30, 0)));
+		add(outputConsole);
 
 	}
 
@@ -96,7 +108,6 @@ public class InputView extends JPanel {
 		decrementButton.setEnabled(true);
 		incrementButton.setEnabled(true);
 	}
-
 
 	class IncrementBetOnClick extends MouseInputAdapter {
 		/* Increments currentBetAmount by 1 up to

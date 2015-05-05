@@ -49,6 +49,14 @@ public class ViewController {
 
 	}
 
+	public void updateOutputConsole (int event) {
+		mainGameFrame.inputView.outputConsole.updateConsole(event);
+	}
+
+	public void updateOutputConsole (int event, int amount) {
+		mainGameFrame.inputView.outputConsole.updateConsole(event, amount);
+	}
+
 
 	public void relayBetToGameController (int amount) {
 		gameController.placeBet(amount);
@@ -67,7 +75,6 @@ public class ViewController {
 		} else {
 			return false;
 		}
-
 	}
 
 	public void cardUnhilighted () {
