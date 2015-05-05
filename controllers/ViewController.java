@@ -28,7 +28,7 @@ public class ViewController {
 
 	public void setMode (int mode) {
 		this.mode = mode;
-	} 
+	}
 
 	public void updateBalanceViewAmount (int amount) {
 		mainGameFrame.balanceView.setText("Player Balance: " + amount);
@@ -49,6 +49,15 @@ public class ViewController {
 
 	}
 
+	public void loadEmptyHandInPlayArea () {
+		for (int i = 0; i < 5; i++) {
+			mainGameFrame.playAreaView.add(new CardView(this, new Card(0, 0)));
+		}
+
+		mainGameFrame.playAreaView.revalidate();
+		mainGameFrame.playAreaView.repaint();
+	}
+
 	public void updateOutputConsole (int event) {
 		mainGameFrame.inputView.outputConsole.updateConsole(event);
 	}
@@ -57,6 +66,9 @@ public class ViewController {
 		mainGameFrame.inputView.outputConsole.updateConsole(event, amount);
 	}
 
+	public void updateOutputConsole (String combination) {
+		mainGameFrame.inputView.outputConsole.updateConsole(combination);
+	}
 
 	public void relayBetToGameController (int amount) {
 		gameController.placeBet(amount);

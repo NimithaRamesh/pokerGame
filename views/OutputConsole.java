@@ -31,6 +31,10 @@ public class OutputConsole extends JLabel {
 		}
 	}
 
+	public void updateConsole (String combination) {
+		setText("You got: " + combination + "!");
+	}
+
 	public void updateConsole (int event, int amount) {
 
 		switch (event) {

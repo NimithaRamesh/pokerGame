@@ -42,6 +42,11 @@ public class Card {
 			case SPADE:
 				suitAsString = "s";
 				break;
+
+			default:
+				suitAsString = "0";
+				break;
+
 		}
 
 		return rank + suitAsString;

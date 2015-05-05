@@ -66,6 +66,14 @@ public class PokerGame {
 		scoreMultiplier = score.scoreMultiplier();
 		incrementAndUpdatePlayerBalance(currentBet * scoreMultiplier);
 
+		viewController.updateOutputConsole(score.toString());
+
+		// Clear any previous cards off play area
+		viewController.clearPlayArea();
+
+		// Load hand into playArea
+		viewController.loadEmptyHandInPlayArea();
+		
 		// Notify viewController of new mode
 		// We'll move this once we fully flesh out the loop
 		viewController.setMode(ViewController.MODE_BET);
