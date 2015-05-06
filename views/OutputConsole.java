@@ -6,10 +6,12 @@ import javax.swing.*;
 public class OutputConsole extends JLabel {
 
 	// Event definitions
+
 	public static final int BET_PLACED = 1;
 	public static final int ROUND_WIN = 2;
 	public static final int ROUND_LOSE = 3;
 	public static final int GAME_LOSE = 4;
+	public static final int PROMPT_PLACE_BET = 5;
 	
 	OutputConsole () {
 		super("You sit down at the table.");
@@ -24,6 +26,9 @@ public class OutputConsole extends JLabel {
 				break;
 			case 4:
 				setText("You're out of money. You lose.");
+				break;
+			case 5:
+				setText("Place a bet.");
 				break;
 			default:
 				setText("Unknown event.");

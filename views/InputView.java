@@ -23,6 +23,7 @@ public class InputView extends JPanel {
 	MouseListener incrementListener = new IncrementBetOnClick();
 	MouseListener betListener = new PlaceBetOnClick();
 	MouseListener discardListener = new DiscardCardsOnClick();
+	MouseListener nextRoundListener = new NextRoundOnClick();
 
 	//PlaceBet Button
 	JButton userActionButton = new JButton();
@@ -68,7 +69,7 @@ public class InputView extends JPanel {
 	public void setUserActionButtonBetMode () {
 
 		// Swap discardListener for betListener
-		userActionButton.removeMouseListener(discardListener);
+		userActionButton.removeMouseListener(nextRoundListener);
 		userActionButton.addMouseListener(betListener);
 
 		enableBettingButtons();
@@ -87,6 +88,13 @@ public class InputView extends JPanel {
 
 		userActionButton.setText("Discard Cards");
 
+	}
+
+	public void setUserActionButtonNextRoundMode () {
+		userActionButton.removeMouseListener(discardListener);
+		userActionButton.addMouseListener(nextRoundListener);
+
+		userActionButton.setText("Next Round");
 	}
 
 	public void disableBettingButtons() {
@@ -116,7 +124,7 @@ public class InputView extends JPanel {
 		@Override
 		public void mouseClicked (MouseEvent e) {
 
-			if (currentBetAmount < currentPlayerBalance) {
+			if (currentBetAmount < viewController.getPlayerBalance()) {
 				currentBetAmount+= 1;
 				betAmount.setText(String.valueOf(currentBetAmount));
 			}
@@ -145,6 +153,10 @@ public class InputView extends JPanel {
 		public void mouseClicked (MouseEvent e) {
 			setUserActionButtonDiscardMode();
 			viewController.relayBetToGameController(currentBetAmount);
+
+			// reset bet amount to 1
+			currentBetAmount = 1;
+			betAmount.setText("1");
 		}
 
 	}
@@ -155,9 +167,19 @@ public class InputView extends JPanel {
 
 		@Override
 		public void mouseClicked (MouseEvent e) {
-			setUserActionButtonBetMode();
-			// holding pattern for now
 			viewController.relayDiscardCommandToGameController();
+			setUserActionButtonNextRoundMode();
+		}
+	}
+
+	class NextRoundOnClick extends MouseInputAdapter {
+		/* this class signals PokerGame to start the next
+		round of the game - if one can be started */
+
+		@Override
+		public void mouseClicked (MouseEvent e) {
+			setUserActionButtonBetMode();
+			viewController.relayNextRoundStart();
 		}
 	}
 

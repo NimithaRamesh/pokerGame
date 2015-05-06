@@ -13,7 +13,7 @@ public class PokerGame {
 
 	PokerGame () {
 		// Set vars
-		viewController = new ViewController(this);
+		viewController = new ViewController(this, player);
 	}
 
 	public void placeBet (int amount) {
@@ -51,8 +51,11 @@ public class PokerGame {
 	}
 
 	public void discardSelected () {
+
 		int scoreMultiplier;
+
 		Score score = new Score(hand);
+
 		// Replace highlighted
 		hand.replaceHighlighted(deck);
 
@@ -68,15 +71,26 @@ public class PokerGame {
 
 		viewController.updateOutputConsole(score.toString());
 
-		// Clear any previous cards off play area
+		// Notify viewController of new mode
+		viewController.setMode(ViewController.MODE_SCORE);
+
+
+		// need check method for balance > 0
+
+	}
+
+	public void nextRoundStart () {
+
+		// Clear play area
 		viewController.clearPlayArea();
 
 		// Load hand into playArea
 		viewController.loadEmptyHandInPlayArea();
 		
 		// Notify viewController of new mode
-		// We'll move this once we fully flesh out the loop
 		viewController.setMode(ViewController.MODE_BET);
+
+		viewController.updateOutputConsole(OutputConsole.PROMPT_PLACE_BET);
 
 	}
 

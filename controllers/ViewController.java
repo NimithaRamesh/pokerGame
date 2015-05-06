@@ -7,18 +7,21 @@ public class ViewController {
 
 	public static final int MODE_BET = 1;
 	public static final int MODE_DISCARD = 2;
+	public static final int MODE_SCORE = 3;
 
 	PokerGame gameController;
 	MainGameFrame mainGameFrame;
+	Player player;
 
 	int mode;
 
 	int highlightedCardCount = 0;
 
-	public ViewController (PokerGame gc) {
+	public ViewController (PokerGame gc, Player player) {
 
 		// Assign vars
 		this.gameController = gc;
+		this.player = player;
 		mode = MODE_BET;
 
 		// InputView needs a reference to the ViewController
@@ -79,6 +82,10 @@ public class ViewController {
 		highlightedCardCount = 0;	// reset highlight count
 	}
 
+	public void relayNextRoundStart() {
+		gameController.nextRoundStart();
+	}
+
 	public boolean canHighlight () {
 
 		if (mode == MODE_DISCARD && highlightedCardCount < 3) {
@@ -93,5 +100,8 @@ public class ViewController {
 		highlightedCardCount-=1;
 	}
 
+	public int getPlayerBalance () {
+		return player.getBalance();
+	}
 
 }
