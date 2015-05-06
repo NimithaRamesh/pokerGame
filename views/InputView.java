@@ -154,9 +154,6 @@ public class InputView extends JPanel {
 			setUserActionButtonDiscardMode();
 			viewController.relayBetToGameController(currentBetAmount);
 
-			// reset bet amount to 1
-			currentBetAmount = 1;
-			betAmount.setText("1");
 		}
 
 	}
@@ -180,6 +177,10 @@ public class InputView extends JPanel {
 		public void mouseClicked (MouseEvent e) {
 			setUserActionButtonBetMode();
 			viewController.relayNextRoundStart();
+
+			// reset bet amount to 1
+			currentBetAmount = 1;
+			betAmount.setText("1");
 		}
 	}
 
