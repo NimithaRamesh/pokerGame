@@ -117,6 +117,20 @@ public class InputView extends JPanel {
 		incrementButton.setEnabled(true);
 	}
 
+	public void gameOverMode () {
+
+		removeAll();
+
+		JLabel gameOverLabel = new JLabel("Game Over", SwingConstants.CENTER);
+		gameOverLabel.setFont(new Font("Arial",Font.PLAIN,44));
+
+		setLayout(new GridLayout(1,0,0,0));
+		add(gameOverLabel);
+
+		revalidate();
+		repaint();
+	}
+
 	class IncrementBetOnClick extends MouseInputAdapter {
 		/* Increments currentBetAmount by 1 up to
 			a maximum of the player's current balance */

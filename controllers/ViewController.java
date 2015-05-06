@@ -104,4 +104,8 @@ public class ViewController {
 		return player.getBalance();
 	}
 
+	public void gameOver () {
+		mainGameFrame.inputView.gameOverMode();
+	}
+
 }

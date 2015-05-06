@@ -76,6 +76,9 @@ public class PokerGame {
 
 
 		// need check method for balance > 0
+		if (player.getBalance() <= 0) {
+			viewController.gameOver();
+		}
 
 	}
 
