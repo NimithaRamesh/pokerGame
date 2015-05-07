@@ -1,0 +1,282 @@
+Author: brook <brookthomas@gmail.com>
+Date:   Wed May 6 12:16:46 2015 -0700
+
+    game now ends when player balance <= 0
+
+Author: brook <brookthomas@gmail.com>
+Date:   Wed May 6 11:23:21 2015 -0700
+
+    fixed bet label issue
+
+Author: brook <brookthomas@gmail.com>
+Date:   Wed May 6 10:40:02 2015 -0700
+
+    added userinput nextround stage, fixed bug with currentbet reset, added console output
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Tue May 5 16:37:01 2015 -0700
+
+    Displays combination in output. Adds empty card set to display while betting.
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Tue May 5 16:02:39 2015 -0700
+
+    Added a method - toString()
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Tue May 5 15:37:52 2015 -0700
+
+    Added a method
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Tue May 5 15:53:35 2015 -0700
+
+    PokerGame updates player's balance according to the score multiplier.
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Tue May 5 13:40:36 2015 -0700
+
+    Adds PlayerTests back to unit tests
+
+Author: brook <brookthomas@gmail.com>
+Date:   Tue May 5 12:38:03 2015 -0700
+
+    added output console and messaging
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Mon May 4 14:48:23 2015 -0700
+
+    Adds unit tests for Score class.
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Mon May 4 12:02:59 2015 -0700
+
+    Added unit tests for Score class
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Mon May 4 11:03:38 2015 -0700
+
+    Fixed inOrder()
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Mon May 4 10:45:12 2015 -0700
+
+    Fixed errors
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Mon May 4 10:43:17 2015 -0700
+
+    Fixed errors
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Mon May 4 10:36:19 2015 -0700
+
+    Fixed errors
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Mon May 4 10:22:31 2015 -0700
+
+    Fixed errors
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Mon May 4 10:02:57 2015 -0700
+
+    Made Score() public
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Mon May 4 09:36:30 2015 -0700
+
+    Score multiplier returns an int (multiplier)
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Mon May 4 09:08:38 2015 -0700
+
+    Adds Score class
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Sun May 3 12:29:43 2015 -0700
+
+    Added a score multiplier method
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Fri May 1 10:15:54 2015 -0700
+
+    Fixed errors
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Fri May 1 09:17:44 2015 -0700
+
+    Added methods for winning combinations
+
+Author: Nimitha Ramesh <nimitha.r.ramesh@gmail.com>
+Date:   Thu Apr 30 22:04:41 2015 -0700
+
+    Added winning combinations to Score
+
+Author: brook <brookthomas@gmail.com>
+Date:   Sun May 3 21:24:13 2015 -0700
+
+    improved look and feel of card highlighting
+
+Author: brook <brookthomas@gmail.com>
+Date:   Sun May 3 16:23:48 2015 -0700
+
+    front-end overhaul to support cyclical gameplay
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Fri May 1 13:33:18 2015 -0700
+
+    Changes Hand replaceHighlighted method to take in a deck instead of making a new one every time.
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Fri May 1 12:00:03 2015 -0700
+
+    Added comment
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Fri May 1 09:22:34 2015 -0700
+
+    Adds swapping selected cards functionality.
+
+Author: brook <brookthomas@gmail.com>
+Date:   Fri May 1 11:03:26 2015 -0700
+
+    added discardCards relay
+
+Author: brook <brookthomas@gmail.com>
+Date:   Fri May 1 10:22:39 2015 -0700
+
+    added ability for frame to swap between bet mode and discard mode. complete refactoring of many other parts of the class
+
+Author: brook <brookthomas@gmail.com>
+Date:   Thu Apr 30 18:03:14 2015 -0700
+
+    inputview now passes bet amount to controller, controller issues balanceview update command
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Thu Apr 30 16:26:17 2015 -0700
+
+    Adds isPresent method to Hand class, so we can quickly check if a card is present in the player's hand.
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Thu Apr 30 16:20:01 2015 -0700
+
+    Adds getters to Card.
+
+Author: brook <brookthomas@gmail.com>
+Date:   Thu Apr 30 13:02:36 2015 -0700
+
+    restructured packages, added InputView -> PokerGame demo method
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Wed Apr 29 15:21:05 2015 -0700
+
+    Adds call to deal cards back, so the game runs again.
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Wed Apr 29 14:15:23 2015 -0700
+
+    Adds endpoints to PokerGame for dealing cards.
+
+Author: brook <brookthomas@gmail.com>
+Date:   Wed Apr 29 10:34:11 2015 -0700
+
+    Highlighting a CardView now toggles isHightlighted in the associated Card model
+
+Author: brook <brook@sfs-wifi-aruba-dhcp-130-212-130-175.sfsu.edu>
+Date:   Wed Apr 29 10:19:07 2015 -0700
+
+    added Card highlighted methods and associated unit test
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Wed Apr 29 07:52:35 2015 -0700
+
+    Adds HandViewer unit test
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Tue Apr 28 18:17:49 2015 -0700
+
+    - Reorganizes unit tests to mirror project's file structure.
+    - Adds UnitTests base class to encapsulate test and report logic.
+
+Author: brook <brook@brooks-MacBook-Pro.local>
+Date:   Tue Apr 28 20:40:06 2015 -0700
+
+    Patched InputView into the MainGameFrame
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Tue Apr 28 17:38:34 2015 -0700
+
+    - Injects player's hand into hand viewer.
+    - Moves MainGameFrame into views directory
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Tue Apr 28 17:19:37 2015 -0700
+
+     - Modified PokerGame class to add controller behavior.
+     - Extracts view behavior from PokerGame class into MainGameFrame class.
+
+Author: brook <brook@brooks-MacBook-Pro.local>
+Date:   Tue Apr 28 17:29:21 2015 -0700
+
+    adding input view
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Tue Apr 28 16:58:58 2015 -0700
+
+    Adds remove method to Hand class.
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Tue Apr 28 16:48:47 2015 -0700
+
+    Adds run_game shellscript for compiling and running the game.
+
+Author: Nimitha Ramesh <nimitharamesh@sfs-wifi-aruba-dhcp-130-212-121-245.sfsu.edu>
+Date:   Tue Apr 28 16:28:41 2015 -0700
+
+    Display balance from user model.
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Mon Apr 27 19:50:10 2015 -0700
+
+    Added more info to README.md
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Mon Apr 27 19:46:07 2015 -0700
+
+    Fixes typo in README.md
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Mon Apr 27 19:42:02 2015 -0700
+
+    Adds Player and Hand models, and test cases for getters and setters.
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Mon Apr 27 18:32:02 2015 -0700
+
+    Updates readme
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Mon Apr 27 18:28:45 2015 -0700
+
+    Create README.md
+
+Author: Adolfo von Zastrow <fito@paragil.com>
+Date:   Mon Apr 27 18:21:37 2015 -0700
+
+    - Reorganizes files into packages:
+      * Models are now under the models directory
+      * Views are under the views directory
+      * Unit Tests are under the unit_tests directory
+    - Updates files to import packages
+    - Adds shell scripts for compiling game files and running tests.
+
+Author: Adolfo von Zastrow <>
+Date:   Mon Apr 27 11:57:06 2015 -0700
+
+    Added handler class
+
+Author: brook <brook@sfs-wifi-aruba-dhcp-130-212-130-235.sfsu.edu>
+Date:   Mon Apr 27 11:48:07 2015 -0700
+
+    Initial com123mit. Basic layout.

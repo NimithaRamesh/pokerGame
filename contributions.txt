@@ -1,0 +1,21 @@
+Distribution of work amongst team members:
+
+- controllers:
+  - PokerGame.java: Brook Thomas, Adolfo von Zastrow, Nimitha Ramesh
+  - ViewController.java: Brook Thomas
+
+- models:
+  - Card.java: Brook Thomas, Adolfo von Zastrow
+  - Deck.java: Brook Thomas, Adolfo von Zastrow
+  - Hand.java: Adolfo von Zastrow
+  - Player.java: Adolfo von Zastrow
+  - Score.java: Nimitha Ramesh
+
+- views:
+  - CardView.java: Brook Thomas
+  - InputView.java: Brook Thomas
+  - MainGameFrame.java: Brook Thomas, Adolfo von Zastrow
+  - OutputConsole.java: Brook Thomas, Adolfo von Zastrow
+
+- shell scripts: Brook Thomas, Adolfo von Zastrow
+- unit tests: Brook Thomas, Adolfo von Zastrow, Nimitha Ramesh
